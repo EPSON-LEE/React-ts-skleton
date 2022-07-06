@@ -1,15 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterAReducer, { increment as incrementA, addFive } from "./reducers/counterA";
-import counterBReducer, { increment as incrementB, addTwo } from "./reducers/counterB";
+import { configureStore } from '@reduxjs/toolkit'
 
+import listReducer from '../pages/List/ListSlice'
 
-const store = configureStore({
-    reducer: {
-        counterA: counterAReducer,
-        counterB: counterBReducer
-    }
+export const store = configureStore({
+  reducer: {
+    list: listReducer
+  },
 })
 
-console.log("Initial State:", store.getState());
-  
-export default store
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch

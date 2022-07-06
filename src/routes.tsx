@@ -2,7 +2,8 @@ import React from 'react';
 import Home from './pages/Home'
 import List from './pages/List'
 import Detail from './pages/Detail'
-import Test from './pages/Test'
+import Parser from './pages/Parser'
+import Rubber from './pages/Rubber'
 import { useRoutes,} from "react-router-dom";
 import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@ant-design/icons';
 
@@ -30,10 +31,17 @@ const menuItems = [
         icon: <UploadOutlined />,
     },
     {
-        path: '/test',
-        key: '/test',
-        label: 'test',
-        element: <Test />,
+        path: '/Parser',
+        key: '/Parser',
+        label: 'Parser',
+        element: <Parser />,
+        icon: <UploadOutlined />,
+    },
+    {
+        path: '/Rubber',
+        key: '/Rubber',
+        label: 'Rubber',
+        element: <Rubber />,
         icon: <UploadOutlined />,
     },
 ]
