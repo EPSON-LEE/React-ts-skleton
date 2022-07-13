@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRoutes, } from 'react-router-dom';
-import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@ant-design/icons';
+import { UserOutlined, VideoCameraOutlined, UploadOutlined, LinkOutlined } from '@ant-design/icons';
 import Home from '../pages/Home';
 import TeamManage from '../pages/TeamManage';
 import ContentPublish from '../pages/ContentPublish';
@@ -83,7 +83,7 @@ const menuItemsArr = [
         label: '友情链接',
         visible: true,
         element: <FriendLink />,
-        icon: <UploadOutlined />,
+        icon: <LinkOutlined />,
     },
 ];
 
