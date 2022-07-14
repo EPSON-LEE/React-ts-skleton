@@ -48,13 +48,19 @@ const columns = [
     render: (_) => <a>{_}</a>,
   },
   {
-    title: '姓名',
+    title: '链接名',
     width: 120,
     dataIndex: 'name',
     render: (_, record) => <Tag color={record.status.color}>{record.status.text}</Tag>,
   },
   {
-    title: '概述',
+    title: '链接地址',
+    width: 120,
+    dataIndex: 'name',
+    render: (_, record) => <Tag color={record.status.color}>{record.status.text}</Tag>,
+  },
+  {
+    title: '图标',
     width: 120,
     search: false,
     dataIndex: 'desc',

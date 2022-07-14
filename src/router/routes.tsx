@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRoutes, } from 'react-router-dom';
-import { UserOutlined, VideoCameraOutlined, UploadOutlined, LinkOutlined } from '@ant-design/icons';
+import { UserOutlined, VideoCameraOutlined, UploadOutlined, LinkOutlined, EditOutlined } from '@ant-design/icons';
 import Home from '../pages/Home';
 import TeamManage from '../pages/TeamManage';
 import ContentPublish from '../pages/ContentPublish';
@@ -50,9 +50,10 @@ const menuItemsArr = [
     {
         path: '/CkEditor',
         key: '/CkEditor',
+        visible: true,
         label: '富文本编辑器',
         element: <CkEditor />,
-        icon: <UploadOutlined />,
+        icon: <EditOutlined />,
     },
     {
         path: '/media_library',

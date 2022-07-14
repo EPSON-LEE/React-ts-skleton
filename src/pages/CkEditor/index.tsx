@@ -1,72 +1,42 @@
 import { useEffect } from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import BoldTest from './plugin-bold/main';
+// plugins
+// import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+// import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+// import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+// import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+// import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+// import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+// plugins ---- end
 import '@ckeditor/ckeditor5-build-classic/build/translations/zh-cn';
 import str from './config';
 
 
+function MyUploadAdapterPlugin(editor: any) {
+  // eslint-disable-next-line no-param-reassign
+  editor.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+    console.log(loader);
+    // ...
+  };
+};
+
+
 const Ckeditor = () => {
   useEffect(() => {
-    // ClassicEditor.builtinPlugins = [
-    //     Essentials,
-    //     UploadAdapter,
-    //     Autoformat,
-    //     Bold,
-    //     Italic,
-    //     BlockQuote,
-    //     EasyImage,
-    //     Heading,
-    //     Image,
-    //     ImageCaption,
-    //     ImageStyle,
-    //     ImageToolbar,
-    //     ImageUpload,
-    //     Link,
-    //     List,
-    //     Paragraph,
-    //     Alignment                                                            // <--- ADDED
-    // ];
     ClassicEditor
       .create(document.querySelector('#editor'), {
-        // toolbar: {
-        //     items: [
-        //         'heading',
-        //         '|',
-        //         'alignment',                                                 // <--- ADDED
-        //         'bold',
-        //         'italic',
-        //         'link',
-        //         'bulletedList',
-        //         'numberedList',
-        //         'uploadImage',
-        //         'blockQuote',
-        //         'undo',
-        //         'redo'
-        //     ]
-        // },
-        // image: {
-        //     toolbar: [
-        //         'imageStyle:inline',
-        //         'imageStyle:block',
-        //         'imageStyle:side',
-        //         '|',
-        //         'toggleImageCaption',
-        //         'imageTextAlternative'
-        //     ]
-        // },
-        // config
+        // plugins: [Code],
+        // extraPlugins: [BoldTest],
         mediaEmbed: {
           previewsInData: true
         },
         language: {
-          // The UI will be English.
           // ui: 'zh-cn',
-
-          // But the content will be edited in Arabic.
           // content: 'zh-cn',
         },
-        data: '<p>Hello from CKEditor 5!</p>'
+        data: '<p>请开始创作吧</p>'
       })
       .then(editor => {
         editor.setData(str);
@@ -78,9 +48,11 @@ const Ckeditor = () => {
         console.log(error);
       });
   }, []);
+
+
   return (
     <div className="App">
-      {/* <div dangerouslySetInnerHTML = {{__html: str }} ></div> */}
+      {/* <div dangerouslySetInnerHTML={{ __html: str }} ></div> */}
       <div id="editor" />
     </div>
   );
